@@ -10,4 +10,8 @@ class Magazine
   def self.all
     @@all
   end
+
+  def contributors
+    Article.all.select { |article| article.magazine == self }.map { |article| article.author }
+  end
 end
